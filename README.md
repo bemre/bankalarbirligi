@@ -1,5 +1,4 @@
 # bankalarbirligi Mobil Zararlı Yazılımı: #slempo android bot
-
 Online banka uygulamalarını hedef alan zararlı yazılımlar her geçen gün artmakta ve farklı atak vektörleri ile karşımıza çıkmaktadır.
 
 Geçtiğimiz ay içerisinde birden fazla zararlı yazılım, farklı kaynaklardan, farklı banka müşterilerini ve online finansal işlemleri kullanan kişileri hedef aldı. Bunlardan ilki  bankalarbirligi.com üzerinden çeşitli banka müşterilerine gönderilen oltalama maili ile ön plana çıktı.
@@ -363,95 +362,6 @@ zararlı belirli aralıklarla (her dakikada bir) C&C sunucuna bağlanıp yeni ko
 
 ![](http://i.imgur.com/rTn5TUy.png)
 
-zararlı yazılımın çalıştığı cihazda Google Play Store açıldığı zaman  işletim sistemi üzerinde aşağıdaki kayıtlar düşmektedir.
-
-```
-I/InputDispatcher(  511): Dropping event because there is no touchable window at (778, 972).
-I/ActivityManager(  511): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.vending/.AssetBrowserActivity} from pid 690
-D/dalvikvm(  511): GC_FOR_ALLOC freed 1660K, 23% free 10811K/13872K, paused 8ms, total 8ms
-I/ActivityManager(  511): Start proc com.android.vending for activity com.android.vending/.AssetBrowserActivity: pid=2710 uid=10078 gids={50078, 3003, 1028, 1015}
-D/Finsky  ( 2710): [1] FinskyApp.onCreate: Initializing network with DFE https://android.clients.google.com/fdfe/
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-D/dalvikvm( 2710): GC_CONCURRENT freed 297K, 10% free 3289K/3636K, paused 2ms+2ms, total 5ms
-D/Finsky  ( 2710): [1] DailyHygiene.goMakeHygieneIfDirty: No need to run daily hygiene.
-W/Settings( 2710): Setting download_manager_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
-W/Settings( 2710): Setting download_manager_recommended_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
-D/Finsky  ( 2710): [1] 2.run: Loaded library for account: [82l_nLYaM8KCGZY41jomHcAuIvo]
-D/Finsky  ( 2710): [1] 2.run: Finished loading 1 libraries.
-D/Finsky  ( 2710): [1] GmsCoreHelper.cleanupNlp: result=false type=4
-D/Finsky  ( 2710): [1] SelfUpdateScheduler.checkForSelfUpdate: Skipping DFE self-update. Local Version [80260017] >= Server Version [-1]
-D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 MarketWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
-D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 RecommendedWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
-D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 NowPlayingWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
-D/Finsky  ( 2710): [1] RestoreTracker.stopServiceIfDone: Restore complete with 0 success and 0 failed.
-I/ActivityManager(  511): Displayed com.android.vending/.AssetBrowserActivity: +471ms
-D/Finsky  ( 2710): [1] MainActivity.initializeBilling: Optimistically initializing billing parameters.
-D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
-D/dalvikvm( 2710): GC_CONCURRENT freed 376K, 8% free 5626K/6052K, paused 2ms+0ms, total 5ms
-``` 
-
-gibi log satırları düşerken 
-
-```
-I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.Cards} from pid 2683
-D/        (  511): HostConnection::get() New Host Connection established 0xb7a504a8, tid 672
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-I/ActivityManager(  511): Displayed org.slempo.service/.activities.Cards: +390ms
-D/Finsky  ( 2710): [1] CarrierParamsAction.createCarrierBillingParameters: Carrier billing config is null. Device is not targeted for DCB 2.
-E/Finsky  ( 2710): [235] FileBasedKeyValueStore.delete: Attempt to delete 'params69dzFR3t8LGNQGIyh8Kkfw' failed!
-D/Finsky  ( 2710): [1] GetBillingCountriesAction.run: Skip getting fresh list of billing countries.
-I/ActivityManager(  511): START u0 {act=com.android.systemui.recent.action.TOGGLE_RECENTS flg=0x10800000 cmp=com.android.systemui/.recent.RecentsActivity (has extras)} from pid 570
-D/dalvikvm(  511): GC_FOR_ALLOC freed 800K, 18% free 11407K/13868K, paused 7ms, total 7ms
-
-``` 
-
-şeklinde **slempo** servisinin **activities.Cards** Cards aktivitesinin etkinleştiği görülmektedir.
-
-```
-I/ActivityManager(  511): Displayed org.slempo.service/.activities.Cards: +390ms
-```
-
-daha sonra ise **activities.CvcPopup** CvcPopup aktivitesinin etkinleştiği gözlemlenebilmektedir.
-```
-I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.CvcPopup} from pid 2683
-``` 
-
-![enter image description here](https://i.imgur.com/jQkzF6V.png)
-
-
-![enter image description here](https://i.imgur.com/EL552jA.png)
-
-
-![enter image description here](https://i.imgur.com/q9zy9dC.png)
-
-
-![enter image description here](https://i.imgur.com/lKkJ2yV.png)
-
-
-![enter image description here](https://i.imgur.com/uZJhWGA.png)
-
-
-dikkat edilirse **screen injection** yöntemi kullanılarak asıl uygulamanın sormadığı fakat zararlı yazılımın elde etmek istediği bilgileri C&C sunucusuna gönderilmektedir.
-
-Yine aynı şekilde kullanıcı gmail'i açtığı anda
-
-```syslog
-I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.GM} from pid 5876
-I/ActivityManager(  511): Displayed org.slempo.service/.activities.GM: +151ms
-I/ActivityManager(  511): START u0 {flg=0x10124000 cmp=org.slempo.service/.activities.GM} from pid 570
-I/ActivityManager(  511): Displayed org.slempo.service/.activities.GM: +68ms
-I/ActivityManager(  511): Killing 5876:org.slempo.service/u0a58 (adj 16): remove task
-I/WindowState(  511): WIN DEATH: Window{52ad13b4 u0 org.slempo.service}
-``` 
-![enter image description here](https://i.imgur.com/Kq8hICR.png)
-
-![enter image description here](https://i.imgur.com/2ugtc4j.png)
-
-```syslog
-org.slempo.service/.activities.GM
-```
-
-Servisi çalışmakta ve gmail kullanıcı adı ve parolasını da ele geçirmek için açılır pencere vasıtasıyla bilgileri ele geçirmektedir.
 
 Zararlının C&C sunucusuna gönderdiği verilerin bulunduğu sınıflar
 
@@ -508,6 +418,95 @@ Uygulamanın arka planda çalıştırdığı komutların bulunduğu sınıflar i
 
 şeklindedir. 
 Görüldüğü üzere Çağrı yönlendirmeden, sms dinlemeye, gps konumu tespit etmeden, numara bloklamaya kadar farklı işlevleri kullanıcıdan habersiz bir şekilde yapmaktadır.
+
+Zararlı yazılımın çalıştığı cihazda herhangi bir uygulama açılıp zararlının bu uygulamaya karşı reaksiyonu incelenmiştir. Örnek olarak  Google Play Store açıldığı zaman işletim sistemi üzerinde aşağıdaki kayıtlar düşmektedir.
+
+
+```
+I/InputDispatcher(  511): Dropping event because there is no touchable window at (778, 972).
+I/ActivityManager(  511): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.vending/.AssetBrowserActivity} from pid 690
+D/dalvikvm(  511): GC_FOR_ALLOC freed 1660K, 23% free 10811K/13872K, paused 8ms, total 8ms
+I/ActivityManager(  511): Start proc com.android.vending for activity com.android.vending/.AssetBrowserActivity: pid=2710 uid=10078 gids={50078, 3003, 1028, 1015}
+D/Finsky  ( 2710): [1] FinskyApp.onCreate: Initializing network with DFE https://android.clients.google.com/fdfe/
+D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
+D/dalvikvm( 2710): GC_CONCURRENT freed 297K, 10% free 3289K/3636K, paused 2ms+2ms, total 5ms
+D/Finsky  ( 2710): [1] DailyHygiene.goMakeHygieneIfDirty: No need to run daily hygiene.
+W/Settings( 2710): Setting download_manager_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
+W/Settings( 2710): Setting download_manager_recommended_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
+D/Finsky  ( 2710): [1] 2.run: Loaded library for account: [82l_nLYaM8KCGZY41jomHcAuIvo]
+D/Finsky  ( 2710): [1] 2.run: Finished loading 1 libraries.
+D/Finsky  ( 2710): [1] GmsCoreHelper.cleanupNlp: result=false type=4
+D/Finsky  ( 2710): [1] SelfUpdateScheduler.checkForSelfUpdate: Skipping DFE self-update. Local Version [80260017] >= Server Version [-1]
+D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 MarketWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
+D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 RecommendedWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
+D/Finsky  ( 2710): [1] RestoreTracker.stopServiceIfDone: Restore complete with 0 success and 0 failed.
+I/ActivityManager(  511): Displayed com.android.vending/.AssetBrowserActivity: +471ms
+D/Finsky  ( 2710): [1] MainActivity.initializeBilling: Optimistically initializing billing parameters.
+D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
+D/dalvikvm( 2710): GC_CONCURRENT freed 376K, 8% free 5626K/6052K, paused 2ms+0ms, total 5ms
+``` 
+>Kayıtlara erişim için logcat uygulamasından yararlanmıştır.
+
+gibi log satırları düşerken, zararlıya ait servis de bu uygulamaya karşı tepki vermekte ve ekrana bir açılır pencere açtığı görülmektedir.
+
+```
+I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.Cards} from pid 2683
+D/        (  511): HostConnection::get() New Host Connection established 0xb7a504a8, tid 672
+D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
+I/ActivityManager(  511): Displayed org.slempo.service/.activities.Cards: +390ms
+D/Finsky  ( 2710): [1] CarrierParamsAction.createCarrierBillingParameters: Carrier billing config is null. Device is not targeted for DCB 2.
+E/Finsky  ( 2710): [235] FileBasedKeyValueStore.delete: Attempt to delete 'params69dzFR3t8LGNQGIyh8Kkfw' failed!
+D/Finsky  ( 2710): [1] GetBillingCountriesAction.run: Skip getting fresh list of billing countries.
+I/ActivityManager(  511): START u0 {act=com.android.systemui.recent.action.TOGGLE_RECENTS flg=0x10800000 cmp=com.android.systemui/.recent.RecentsActivity (has extras)} from pid 570
+D/dalvikvm(  511): GC_FOR_ALLOC freed 800K, 18% free 11407K/13868K, paused 7ms, total 7ms
+
+``` 
+şeklinde **slempo** servisinin **Cards**  aktivitesinin etkinleştiği görülmektedir.
+
+```
+I/ActivityManager(  511): Displayed org.slempo.service/.activities.Cards: +390ms
+```
+
+daha sonra ise **CvcPopup**  aktivitesinin etkinleştiği gözlemlenebilmektedir.
+```
+I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.CvcPopup} from pid 2683
+``` 
+
+![enter image description here](https://i.imgur.com/jQkzF6V.png)
+
+
+![enter image description here](https://i.imgur.com/EL552jA.png)
+
+
+![enter image description here](https://i.imgur.com/q9zy9dC.png)
+
+
+![enter image description here](https://i.imgur.com/lKkJ2yV.png)
+
+
+![enter image description here](https://i.imgur.com/uZJhWGA.png)
+
+dikkat edilirse **screen injection** yöntemi kullanılarak asıl uygulamanın sormadığı fakat zararlı yazılımın elde etmek istediği bilgileri C&C sunucusuna gönderilmektedir.
+
+Yine aynı şekilde kullanıcı gmail'i açtığı anda yine zararlı devreye girmektedir.
+
+```syslog
+I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.GM} from pid 5876
+I/ActivityManager(  511): Displayed org.slempo.service/.activities.GM: +151ms
+I/ActivityManager(  511): START u0 {flg=0x10124000 cmp=org.slempo.service/.activities.GM} from pid 570
+I/ActivityManager(  511): Displayed org.slempo.service/.activities.GM: +68ms
+I/ActivityManager(  511): Killing 5876:org.slempo.service/u0a58 (adj 16): remove task
+I/WindowState(  511): WIN DEATH: Window{52ad13b4 u0 org.slempo.service}
+``` 
+![enter image description here](https://i.imgur.com/Kq8hICR.png)
+
+![enter image description here](https://i.imgur.com/2ugtc4j.png)
+
+```syslog
+org.slempo.service/.activities.GM
+```
+
+Servisi çalışmakta ve gmail kullanıcı adı ve parolasını da ele geçirmek için açılır pencere vasıtasıyla bilgileri ele geçirmektedir.
 
 Uygulamanın kaynak kodlarında yer alan sınıflardan:
 
