@@ -18,13 +18,13 @@ Farklı alan adları ile kurbanlarına ulaşmaya çalışan saldırganlar
 |@renatea.gob.ar|
 |@bildirimbankalarbirligi.co.uk|
 
-alan adlarından kullanıcılara gönderikleri e-posta göndermekte ve postanın içeriğinde Türk Bankalar Birliği'nin güncelleme adı altında kullanıcılardan ilgili bankadaki hesap bilgilerini girmesini talep etmektedir 
+alan adlarından kullanıcılara gönderikleri e-posta göndermekte ve postanın içeriğinde Türkiye Bankalar Birliği'nin güncelleme adı altında kullanıcılardan ilgili bankadaki hesap bilgilerini girmesini talep etmektedir 
 
-![enter image description here](https://i.imgur.com/01r5jz1.png)
+![enter image description here](https://i.imgur.com/01r5jz1.png) *
 
 >TBB’ye (Bankalar Birliği) bağlı tüm bankaların SSL yazılımları ve internet bankacılığına hizmet eden bilgisayarlar ve akıllı telefonlar güncellenmektedir 
 
-Gibi bir bilgi sunmakta ve ilgili bankalara ait müşterilerin bilgilerinin güncellenmesi gerektiğini söylemektedir. 5 farklı banka için hazırlanmış içeriğe ulaştığınız zaman ilgili bankanın online bankacılık uygulamasının birebir kopyası içerik karşınıza çıkmaktadır:
+Örnekte olduğu gibi bir e-posta içeriği ile ilgili bankalara ait müşterilerin bilgilerinin güncellenmesi gerektiğini belirtmektedir. e-posta ile gelen linke tıkladığınızda 5 farklı banka için hazırlanmış ilgili bankanın online bankacılık uygulamasının birebir kopyası içerik karşınıza çıkmaktadır:
 
 ![enter image description here](https://i.imgur.com/Q6n2VhQ.png)
 
@@ -32,12 +32,11 @@ Gibi bir bilgi sunmakta ve ilgili bankalara ait müşterilerin bilgilerinin gün
 
 ![enter image description here](https://i.imgur.com/sRYCADh.png)
 
-
 ![enter image description here](https://i.imgur.com/BoSMopH.png)
 
 ![enter image description here](https://i.imgur.com/nWnDOmo.png)
 
-Saldırgan kurbanlarından ilgili bilgileri girmesini talep edip bu bilgileri ileriki safhalarda kullanmak üzere saklamaktadır.
+Saldırgan kurbanlarından ilgili bilgileri girmesini talep edip bu bilgileri daha sonra kullanmak üzere saklamaktadır.
 
 İlgili alan adı incelendiğinde oltalama için aynı IP adresine ait birden fazla domain ve farklı sanal sunucu bilgileri ile ön plana çıkmaktadır.
 
@@ -61,13 +60,11 @@ Saldırgan kurbanlarından ilgili bilgileri girmesini talep edip bu bilgileri il
 
 Saldırıyı gerçekleştirmek isteyenler, hem yurt içinde hem de yurt dışında birçok kişiyi hedef almakta ve geniş çaplı bir oltalama kampanyalardan birisini yönettiği sonucuna varılabilmektedir.
 
-
-Müşteri ilgili bankadaki kendi hesap bilgilerini girdiği vakit cep telefonuna gönderilen doğrulama kodunu (**OTP**) alabilmek için yine **android** telefonlar için tasarlanmış mobil uygulamayı müşteriye indirtmek istemektedir.
+Müşteri ilgili bankadaki kendi hesap bilgilerini girdiği vakit cep telefonuna gönderilen doğrulama kodunu (**OTP**) alabilmek için  **android** telefonlar için tasarlanmış mobil uygulamayı müşteriye indirtmek istemektedir.
 
 ![enter image description here](https://i.imgur.com/I8oCxBp.png)
 
-
-Saldırgan zararlı yazılıma **E-Şifre Güvenlik** adı verdiği uygulamayı bu anda indirtmektedir.
+Saldırgan **E-Şifre Güvenlik** adı verdiği uygulamayı bu safhada indirtmektedir.
 
 Saldırgan her bir banka icin hazırladığı  oltalama web sitesinin arka tarafında *PHP* ile hazırlanmış bir uygulama sunmaktadır.
 Sunucu üzerinde çalışan
@@ -157,8 +154,7 @@ else
 }
 ?>
 ```
-
-Saldırgan kullanıcıdan almış olduğu hassas verilerden:
+Görüleceği üzere saldırgan kullanıcıdan almış olduğu verilerden:
 
  - User 
  - Pass 
@@ -170,9 +166,9 @@ Saldırgan kullanıcıdan almış olduğu hassas verilerden:
  - Type
  - Time & Date
 
-gibi veriler kendi sunucusu üzerindeki **log.txt** dosyasına yazmaktadır. Böylece kullanıcılara ait parola, hesap numarası gibi bilgileri kaydetmektedir.
+gibi hassas bilgileri kendi sunucusu üzerindeki **log.txt** dosyasına yazmaktadır. Böylece kullanıcılara ait parola, hesap numarası gibi bilgileri kaydetmektedir.
 
-Kurban **android** cihazdan bağlandığı durumlarda ise  *download.php* sayfasına yönlendirilmekte ve android uygulamasını indirtmektedir. Aksi durumlarda ise  kurbanı doğrudan Türk Bankalar Birliğinin ana sayfasına (tbb.org.tr'ye) yönlendirmektedir.
+Kurban **android** cihazdan bağlandığı durumlarda ise  *download.php* sayfasına yönlendirilmekte ve android uygulamasını doğrudan indirtmektedir. Aksi durumlarda ise  kurbanı doğrudan Türk Bankalar Birliğinin ana sayfasına (tbb.org.tr'ye) yönlendirmektedir.
 
 ```php
 <?php
@@ -201,7 +197,7 @@ echo '
 
 ```
 
-*download.php* dosyası PHP kodlarında ise ilgili zararlı yazılım indirilmekte ya da youtube mobil sitesine yönlendirildiği belirtir kod parçası.
+*download.php* dosyası *PHP* kodlarında ise ilgili zararlı yazılım indirilmekte ya da youtube mobil sitesine yönlendirildiği belirtir kod parçası.
 
 ```php
 <?php
@@ -248,14 +244,14 @@ indirilen **AdobeFlashPlayer.apk** mobil zararlı yazılımı ise aşağıda bel
 
 ![enter image description here](https://i.imgur.com/KIqGprP.png)
 
-
 Uygulamanın istediği izinleri kontrol ettiğimiz zaman şu şekilde bir tablo ile karşı karşıya kalmaktayız
 
 ![enter image description here](https://i.imgur.com/hdntub7.png)
 
-Uygulamanın kaynak kodlarına erişmek için apk dosyası decompile işleminden geçirilerek daha ayrıntılı verilere ulaşılabilmektedir. bu işlem için [jd-gui](http://jd.benow.ca/), [APK2Java](http://www.apk2java.com/) vb. apk dosyalarından java kaynak koda erişmeye izin veren araçlar kullanılabilir.
+Uygulamanın kaynak kodlarına erişmek için apk dosyası decompile işleminden geçirilerek daha ayrıntılı verilere ulaşılabilmektedir. 
+Bu işlem için [jd-gui](http://jd.benow.ca/), [APK2Java](http://www.apk2java.com/) vb. apk dosyalarından java kaynak koda erişmeye izin veren araçlar kullanılabilir.
 
-**slempo** paket ismini kullanan daha önceki android zararlı yazılım TOR ağını kullanarak C&C ile iletişime geçerken 
+**slempo** paket ismini kullanan daha önceki android zararlı yazılım TOR ağını kullanarak C&C ile iletişime geçtiği bilinmektedir. *
 
 ![enter image description here](https://i.imgur.com/9ZFCePn.png)
 
@@ -266,7 +262,6 @@ Uygulamanın kaynak kodlarına erişmek için apk dosyası decompile işleminden
 
 
 tbb adına yayılan **AdobeFlashPlayer** ise standart HTTP protokolünü kullanmaktadır. Zararlı yazılıma ait bazı bulguları irdelersek.
-
 
 **960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7** hash değerine sahip zararlı yazılıma ait [virustotal analizi](https://www.virustotal.com/en/file/960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7/analysis/) gibidir.
 
@@ -286,8 +281,6 @@ org.slempo.service.activities.GM
 org.slempo.service.activities.HTMLDialogs
 org.slempo.service.activities.CommonHTML 
 ``` 
-
-
 
 *Constants.java*
 
@@ -329,7 +322,7 @@ public class Constants
   public Constants() {}
 }
 ```
-dikkat edileceği üzere sabit değişkenlerin bulunduğu dosya içerisinde **IP** adresleri ve bazı URL bilgileri bulunmaktadır.  zararlının iletişime geçtiğ CnC sunucu bilgisi
+dikkat edileceği üzere sabit değişkenlerin bulunduğu dosya içerisinde **IP** adresleri ve bazı URL bilgileri bulunmaktadır.  Zararlının iletişime geçtiğ CnC sunucu bilgisi
 
 ```java
     CreditCardNumberEditText$OnCreditCardTypeChangedListener
@@ -349,7 +342,7 @@ Zararlı mobil cihazı ilklendirirken  cihaza ait çeşitli verileri C&C sunucuy
 
 ![enter image description here](https://i.imgur.com/vLSUjGc.png)
 
-zararlı belirli aralıklarla (her bir dakikada bir) C&C sunucuna bağlanıp yeni komut beklemektedir.
+zararlı belirli aralıklarla (her dakikada bir) C&C sunucuna bağlanıp yeni komut beklemektedir.
 
 
 ```
@@ -469,9 +462,7 @@ I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activ
 ![enter image description here](https://i.imgur.com/q9zy9dC.png)
 
 
-
 ![enter image description here](https://i.imgur.com/lKkJ2yV.png)
-
 
 
 ![enter image description here](https://i.imgur.com/uZJhWGA.png)
@@ -555,12 +546,14 @@ Uygulamanın kaynak kodlarında yer alan sınıflardan:
 
 ![enter image description here](https://i.imgur.com/w0LSSxn.png)
 
-https://www.commbank.com.au/
-https://ibanking.stgeorge.com.au/
-https://www.nab.com.au/personal/banking/nab-internet-banking
-https://www.westpac.com.au/personal-banking/online-banking/features/
-
+- https://www.commbank.com.au/
+- https://ibanking.stgeorge.com.au/
+- https://www.nab.com.au/personal/banking/nab-internet-banking
+- https://www.westpac.com.au/personal-banking/online-banking/features/
 
 gibi siteleri hedef alması zararlının farklı bir kıtayı hedefler iken kurban portföyünü genişletmek adına türk banka müşterilerini de hedef aldığını söyleyebiliriz.
 
 **devam edecek
+
+* http://www.ntv.com.tr/ekonomi/kredi-karti-kullanicilarina-sahte-site-uyarisi,8HAQ58PWk0a-BcILzvl3vw?_ref=infinite 
+* https://securelist.com/blog/incidents/58528/the-first-tor-trojan-for-android/ 
