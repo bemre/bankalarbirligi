@@ -37,7 +37,6 @@ e-posta gönderilen alan adları şu şekildedir:
 |@renatea.gob.ar|
 |@bildirimbankalarbirligi.co.uk|
 
-
 İlgili alan adı incelendiğinde oltalama için aynı IP adresine ait birden fazla domain ve farklı sanal sunucu bilgileri ile ön plana çıkmaktadır.
 
 | Alan Adı | IP Adresi      |
