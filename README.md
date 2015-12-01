@@ -4,27 +4,17 @@ Online banka uygulamalarını hedef alan zararlı yazılımlar her geçen gün a
 
 Geçtiğimiz ay içerisinde birden fazla zararlı yazılım, farklı kaynaklardan, farklı banka müşterilerini ve online finansal işlemleri kullanan kişileri hedef aldı. Bunlardan ilki  bankalarbirligi.com üzerinden çeşitli banka müşterilerine gönderilen oltalama maili ile ön plana çıktı.
 
-İlk olarak 2011 yılının mart ayında çıkan ve kredi kartı bilgilerini çalmak üzere oluşturulmuş bir web uygulaması olarak karşımıza çıkan bu domain şimdilerde hem web hem de mobil uygulama olarak karşımıza çıkmaktadır.
+İlk olarak [2011 yılının mart ayında çıkan](http://www.ntv.com.tr/ekonomi/kredi-karti-kullanicilarina-sahte-site-uyarisi,8HAQ58PWk0a-BcILzvl3vw?_ref=infinite) ve kredi kartı bilgilerini çalmak üzere oluşturulmuş bir web uygulaması olarak karşımıza çıkan bu domain şimdilerde hem web hem de mobil uygulama olarak karşımıza çıkmaktadır.
 
 ![enter image description here](https://i.imgur.com/NpOhiOQ.png)
 
-Farklı alan adları ile kurbanlarına ulaşmaya çalışan saldırganlar
+Farklı alan adları ile kurbanlarına ulaşmaya çalışan saldırganlar e-posta göndermekte ve postanın içeriğinde Türkiye Bankalar Birliği'nin güncelleme adı altında kullanıcılardan ilgili bankadaki hesap bilgilerini girmesini talep etmektedir.
 
-| Alan Adı |   
-|:--------|
-|@bankalarbirligi.com|
-|@onlinebankalarbirligi.co.uk|
-|@bankalarbirligimail.co.uk|
-|@renatea.gob.ar|
-|@bildirimbankalarbirligi.co.uk|
-
-alan adlarından kullanıcılara gönderikleri e-posta göndermekte ve postanın içeriğinde Türkiye Bankalar Birliği'nin güncelleme adı altında kullanıcılardan ilgili bankadaki hesap bilgilerini girmesini talep etmektedir 
-
-![enter image description here](https://i.imgur.com/01r5jz1.png) *
+![enter image description here](https://i.imgur.com/01r5jz1.png)
 
 >TBB’ye (Bankalar Birliği) bağlı tüm bankaların SSL yazılımları ve internet bankacılığına hizmet eden bilgisayarlar ve akıllı telefonlar güncellenmektedir 
 
-Örnekte olduğu gibi bir e-posta içeriği ile ilgili bankalara ait müşterilerin bilgilerinin güncellenmesi gerektiğini belirtmektedir. e-posta ile gelen linke tıkladığınızda 5 farklı banka için hazırlanmış ilgili bankanın online bankacılık uygulamasının birebir kopyası içerik karşınıza çıkmaktadır:
+Örnekte olduğu gibi e-posta içeriği ile ilgili bankalara ait müşterilerin bilgilerinin güncellenmesi gerektiğini belirtmektedir. e-posta ile gelen linke tıkladığınızda 5 farklı banka için hazırlanmış ilgili bankanın online bankacılık uygulamasının birebir kopyası içerik karşınıza çıkmaktadır:
 
 ![enter image description here](https://i.imgur.com/Q6n2VhQ.png)
 
@@ -37,6 +27,17 @@ alan adlarından kullanıcılara gönderikleri e-posta göndermekte ve postanın
 ![enter image description here](https://i.imgur.com/nWnDOmo.png)
 
 Saldırgan kurbanlarından ilgili bilgileri girmesini talep edip bu bilgileri daha sonra kullanmak üzere saklamaktadır.
+
+e-posta gönderilen alan adları şu şekildedir:
+
+| Alan Adı |   
+|:--------|
+|@bankalarbirligi.com|
+|@onlinebankalarbirligi.co.uk|
+|@bankalarbirligimail.co.uk|
+|@renatea.gob.ar|
+|@bildirimbankalarbirligi.co.uk|
+
 
 İlgili alan adı incelendiğinde oltalama için aynı IP adresine ait birden fazla domain ve farklı sanal sunucu bilgileri ile ön plana çıkmaktadır.
 
@@ -166,9 +167,9 @@ Görüleceği üzere saldırgan kullanıcıdan almış olduğu verilerden:
  - Type
  - Time & Date
 
-gibi hassas bilgileri kendi sunucusu üzerindeki **log.txt** dosyasına yazmaktadır. Böylece kullanıcılara ait parola, hesap numarası gibi bilgileri kaydetmektedir.
+gibi hassas bilgileri kendi sunucusu üzerindeki **log.txt** dosyasına yazmaktadır. Böylece kullanıcılara ait parola, hesap numarası telefon numarası gibi bilgileri kaydetmektedir.
 
-Kurban **android** cihazdan bağlandığı durumlarda ise  *download.php* sayfasına yönlendirilmekte ve android uygulamasını doğrudan indirtmektedir. Aksi durumlarda ise  kurbanı doğrudan Türk Bankalar Birliğinin ana sayfasına (tbb.org.tr'ye) yönlendirmektedir.
+Kurban **android** cihazdan bağlandığı durumlarda ise web uygulaması *download.php* sayfasına yönlendirilmekte ve android uygulamasını doğrudan cihaza indirtmektedir. Aksi durumlarda ise  kurbanı doğrudan Türk Bankalar Birliğinin ana sayfasına (tbb.org.tr'ye) yönlendirmektedir.
 
 ```php
 <?php
@@ -196,8 +197,7 @@ echo '
 }
 
 ```
-
-*download.php* dosyası *PHP* kodlarında ise ilgili zararlı yazılım indirilmekte ya da youtube mobil sitesine yönlendirildiği belirtir kod parçası.
+site içerisinde farklı bir kod parçasında ise ilgili zararlı yazılım indirilmekte ya da youtube mobil sitesine yönlendirildiği belirtir kod parçası bulunmaktadır.
 
 ```php
 <?php
@@ -251,20 +251,6 @@ Uygulamanın istediği izinleri kontrol ettiğimiz zaman şu şekilde bir tablo 
 Uygulamanın kaynak kodlarına erişmek için apk dosyası decompile işleminden geçirilerek daha ayrıntılı verilere ulaşılabilmektedir. 
 Bu işlem için [jd-gui](http://jd.benow.ca/), [APK2Java](http://www.apk2java.com/) vb. apk dosyalarından java kaynak koda erişmeye izin veren araçlar kullanılabilir.
 
-**slempo** paket ismini kullanan daha önceki android zararlı yazılım TOR ağını kullanarak C&C ile iletişime geçtiği bilinmektedir. *
-
-![enter image description here](https://i.imgur.com/9ZFCePn.png)
-
-![enter image description here](https://i.imgur.com/EwBs0qB.png)
-
-
-![enter image description here](https://i.imgur.com/OmaJcJk.png)
-
-
-tbb adına yayılan **AdobeFlashPlayer** ise standart HTTP protokolünü kullanmaktadır. Zararlı yazılıma ait bazı bulguları irdelersek.
-
-**960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7** hash değerine sahip zararlı yazılıma ait [virustotal analizi](https://www.virustotal.com/en/file/960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7/analysis/) gibidir.
-
 Uygulama decompile işleminden geçirilip kaynak kodlar incelendiğinde bazı bilgiler ön plana çıkmaktadır.
 
 ```java
@@ -281,6 +267,24 @@ org.slempo.service.activities.GM
 org.slempo.service.activities.HTMLDialogs
 org.slempo.service.activities.CommonHTML 
 ``` 
+
+**slempo** paket ismini kullanan daha önceki android zararlı yazılımı [TOR ağını](https://securelist.com/blog/incidents/58528/the-first-tor-trojan-for-android/) kullanarak C&C ile iletişime geçtiği bilinmektedir.
+
+![enter image description here](https://i.imgur.com/9ZFCePn.png)
+
+Zararlı yazılımın yönetildiği Komuta kontrol sunucusuna (C&C) ait ekran görüntüleri de şu şekildedir.
+
+![enter image description here](https://i.imgur.com/EwBs0qB.png)
+
+![enter image description here](https://i.imgur.com/OmaJcJk.png)
+
+
+TBB adına yayılan **AdobeFlashPlayer** aynı paket adıyla yayılan zararlı uygulamanın aksine  HTTP protokolünü kullanmaktadır. 
+
+Zararlı yazılıma ait bazı bulguları irdelersek:
+
+**960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7** hash değerine sahip zararlı yazılıma ait [virustotal analizi](https://www.virustotal.com/en/file/960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7/analysis/) gibidir.
+
 
 *Constants.java*
 
@@ -338,109 +342,57 @@ sınıfında *sendData* ile **37.143.14.251** IP adresi **2080** portuna veri g�
 Zararlı uygulamanın cihaz tarafında yaptığı diğer işlemlere bakarsak:
 Zararlı mobil cihazı ilklendirirken  cihaza ait çeşitli verileri C&C sunucuya göndermekte ve bu verilere göre enfekte olmuş cihaz için bir ID(code) almaktadır.
 
-![enter image description here](https://i.imgur.com/xcsHObE.png)
+![](https://i.imgur.com/xcsHObE.png)
 
-![enter image description here](https://i.imgur.com/vLSUjGc.png)
+![](https://i.imgur.com/vLSUjGc.png)
 
 zararlı belirli aralıklarla (her dakikada bir) C&C sunucuna bağlanıp yeni komut beklemektedir.
 
+![](http://i.imgur.com/rTn5TUy.png)
+
+zararlı yazılımın çalıştığı cihazda Google Play Store açıldığı zaman  işletim sistemi üzerinde aşağıdaki kayıtlar düşmektedir.
 
 ```
 
 I/InputDispatcher(  511): Dropping event because there is no touchable window at (778, 972).
 I/ActivityManager(  511): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.vending/.AssetBrowserActivity} from pid 690
-W/genymotion_audio(  148): out_write() limiting sleep time 111337 to 39909
-W/genymotion_audio(  148): out_write() limiting sleep time 102879 to 39909
-W/genymotion_audio(  148): out_write() limiting sleep time 94467 to 39909
 D/dalvikvm(  511): GC_FOR_ALLOC freed 1660K, 23% free 10811K/13872K, paused 8ms, total 8ms
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-W/genymotion_audio(  148): out_write() limiting sleep time 76575 to 39909
 I/ActivityManager(  511): Start proc com.android.vending for activity com.android.vending/.AssetBrowserActivity: pid=2710 uid=10078 gids={50078, 3003, 1028, 1015}
-W/genymotion_audio(  148): out_write() limiting sleep time 68163 to 39909
 D/Finsky  ( 2710): [1] FinskyApp.onCreate: Initializing network with DFE https://android.clients.google.com/fdfe/
 D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
 D/dalvikvm( 2710): GC_CONCURRENT freed 217K, 8% free 3186K/3456K, paused 2ms+0ms, total 5ms
-W/genymotion_audio(  148): out_write() limiting sleep time 50272 to 39909
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
 D/dalvikvm( 2710): GC_CONCURRENT freed 297K, 10% free 3289K/3636K, paused 2ms+2ms, total 5ms
 D/Finsky  ( 2710): [1] DailyHygiene.goMakeHygieneIfDirty: No need to run daily hygiene.
 W/Settings( 2710): Setting download_manager_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
 W/Settings( 2710): Setting download_manager_recommended_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
-W/genymotion_audio(  148): out_write() limiting sleep time 41836 to 39909
-D/dalvikvm( 2710): GC_CONCURRENT freed 181K, 7% free 3606K/3840K, paused 1ms+1ms, total 5ms
-D/dalvikvm( 2710): GC_FOR_ALLOC freed 26K, 7% free 3757K/4004K, paused 2ms, total 2ms
-I/dalvikvm-heap( 2710): Grow heap (frag case) to 4.791MB for 1127532-byte allocation
-D/dalvikvm( 2710): GC_FOR_ALLOC freed <1K, 5% free 4857K/5108K, paused 1ms, total 1ms
-D/dalvikvm( 2710): GC_CONCURRENT freed <1K, 5% free 4857K/5108K, paused 0ms+0ms, total 2ms
 D/Finsky  ( 2710): [1] 2.run: Loaded library for account: [82l_nLYaM8KCGZY41jomHcAuIvo]
 D/Finsky  ( 2710): [1] 2.run: Finished loading 1 libraries.
 D/Finsky  ( 2710): [1] GmsCoreHelper.cleanupNlp: result=false type=4
 D/Finsky  ( 2710): [1] SelfUpdateScheduler.checkForSelfUpdate: Skipping DFE self-update. Local Version [80260017] >= Server Version [-1]
-D/libEGL  ( 2710): loaded /system/lib/egl/libEGL_genymotion.so
-D/        ( 2710): HostConnection::get() New Host Connection established 0xb7b88670, tid 2710
-D/libEGL  ( 2710): loaded /system/lib/egl/libGLESv1_CM_genymotion.so
-D/libEGL  ( 2710): loaded /system/lib/egl/libGLESv2_genymotion.so
-W/EGL_genymotion( 2710): eglSurfaceAttrib not implemented
-E/OpenGLRenderer( 2710): Getting MAX_TEXTURE_SIZE from GradienCache
-E/OpenGLRenderer( 2710): MAX_TEXTURE_SIZE: 16384
-E/OpenGLRenderer( 2710): Getting MAX_TEXTURE_SIZE from Caches::initConstraints()
-E/OpenGLRenderer( 2710): MAX_TEXTURE_SIZE: 16384
-D/OpenGLRenderer( 2710): Enabling debug mode 0
-D/dalvikvm( 2710): GC_CONCURRENT freed 355K, 8% free 5008K/5416K, paused 0ms+1ms, total 4ms
 D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 MarketWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
 D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 RecommendedWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
 D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 NowPlayingWidgetProvider widgets (com.google.android.finsky.action.TOC_SET)
 D/Finsky  ( 2710): [1] RestoreTracker.stopServiceIfDone: Restore complete with 0 success and 0 failed.
-D/dalvikvm( 2710): GC_CONCURRENT freed 287K, 6% free 5337K/5672K, paused 0ms+0ms, total 5ms
 I/ActivityManager(  511): Displayed com.android.vending/.AssetBrowserActivity: +471ms
 D/Finsky  ( 2710): [1] MainActivity.initializeBilling: Optimistically initializing billing parameters.
 D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
 D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
 D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
 D/dalvikvm( 2710): GC_CONCURRENT freed 376K, 8% free 5626K/6052K, paused 2ms+0ms, total 5ms
-D/dalvikvm( 2710): GC_CONCURRENT freed 205K, 4% free 6229K/6484K, paused 3ms+1ms, total 8ms
-D/dalvikvm( 2710): GC_EXPLICIT freed 225K, 4% free 6998K/7276K, paused 2ms+1ms, total 8ms
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-
 ``` 
 
-gibi log satirlari düşerken 
+gibi log satırları düşerken 
 
 ```
-D/dalvikvm( 2683): GC_CONCURRENT freed 167K, 6% free 3640K/3856K, paused 1ms+0ms, total 4ms
 I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.Cards} from pid 2683
 D/        (  511): HostConnection::get() New Host Connection established 0xb7a504a8, tid 672
 D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-D/dalvikvm( 2683): GC_FOR_ALLOC freed 11K, 6% free 3813K/4020K, paused 1ms, total 1ms
-I/dalvikvm-heap( 2683): Grow heap (frag case) to 4.845MB for 1127532-byte allocation
-D/dalvikvm( 2683): GC_FOR_ALLOC freed <1K, 5% free 4914K/5124K, paused 1ms, total 1ms
-D/dalvikvm( 2683): GC_CONCURRENT freed <1K, 5% free 4914K/5124K, paused 0ms+1ms, total 2ms
-D/libEGL  ( 2683): loaded /system/lib/egl/libEGL_genymotion.so
-D/        ( 2683): HostConnection::get() New Host Connection established 0xb7ba86e0, tid 2683
-D/libEGL  ( 2683): loaded /system/lib/egl/libGLESv1_CM_genymotion.so
-D/libEGL  ( 2683): loaded /system/lib/egl/libGLESv2_genymotion.so
-W/EGL_genymotion( 2683): eglSurfaceAttrib not implemented
-E/OpenGLRenderer( 2683): Getting MAX_TEXTURE_SIZE from GradienCache
-E/OpenGLRenderer( 2683): MAX_TEXTURE_SIZE: 16384
-E/OpenGLRenderer( 2683): Getting MAX_TEXTURE_SIZE from Caches::initConstraints()
-E/OpenGLRenderer( 2683): MAX_TEXTURE_SIZE: 16384
-D/OpenGLRenderer( 2683): Enabling debug mode 0
-D/dalvikvm( 2683): GC_CONCURRENT freed 121K, 4% free 5302K/5476K, paused 0ms+0ms, total 2ms
 I/ActivityManager(  511): Displayed org.slempo.service/.activities.Cards: +390ms
 D/Finsky  ( 2710): [1] CarrierParamsAction.createCarrierBillingParameters: Carrier billing config is null. Device is not targeted for DCB 2.
 E/Finsky  ( 2710): [235] FileBasedKeyValueStore.delete: Attempt to delete 'params69dzFR3t8LGNQGIyh8Kkfw' failed!
 D/Finsky  ( 2710): [1] GetBillingCountriesAction.run: Skip getting fresh list of billing countries.
-D/dalvikvm(  675): GC_CONCURRENT freed 460K, 16% free 3574K/4236K, paused 0ms+1ms, total 3ms
-D/dalvikvm(  511): GC_CONCURRENT freed 1079K, 17% free 11565K/13872K, paused 1ms+1ms, total 14ms
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-D/dalvikvm(  511): GC_FOR_ALLOC freed 1204K, 18% free 11413K/13868K, paused 11ms, total 11ms
-W/genymotion_audio(  148): out_write() limiting sleep time 100839 to 39909
-D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
 I/ActivityManager(  511): START u0 {act=com.android.systemui.recent.action.TOGGLE_RECENTS flg=0x10800000 cmp=com.android.systemui/.recent.RecentsActivity (has extras)} from pid 570
 D/dalvikvm(  511): GC_FOR_ALLOC freed 800K, 18% free 11407K/13868K, paused 7ms, total 7ms
-W/genymotion_audio(  148): out_write() limiting sleep time 92380 to 39909
-W/EGL_genymotion(  570): eglSurfaceAttrib not implemented
 
 ``` 
 
@@ -470,7 +422,7 @@ I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activ
 
 dikkat edilirse **screen injection** yöntemi kullanılarak asıl uygulamanın sormadığı fakat zararlı yazılımın elde etmek istediği bilgileri C&C sunucusuna gönderilmektedir.
 
-Yine aynı şekilde kullanıcı gmail'i açtığı zaman
+Yine aynı şekilde kullanıcı gmail'i açtığı anda
 
 ```
 I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.GM} from pid 5876
@@ -485,7 +437,11 @@ I/WindowState(  511): WIN DEATH: Window{52ad13b4 u0 org.slempo.service}
 
 ![enter image description here](https://i.imgur.com/2ugtc4j.png)
 
-gmail kullanıcı adı ve parolasını da ele geçirmek için açılır pencere vasıtasıyla bilgileri ele geçirmeye çalışmaktadır.
+```
+org.slempo.service/.activities.GM
+```
+
+Servisi çalışmakta ve gmail kullanıcı adı ve parolasını da ele geçirmek için açılır pencere vasıtasıyla bilgileri ele geçirmektedir.
 
 Zararlının C&C sunucusuna gönderdiği verilerin bulunduğu sınıflar
 
@@ -552,8 +508,3 @@ Uygulamanın kaynak kodlarında yer alan sınıflardan:
 - https://www.westpac.com.au/personal-banking/online-banking/features/
 
 gibi siteleri hedef alması zararlının farklı bir kıtayı hedefler iken kurban portföyünü genişletmek adına türk banka müşterilerini de hedef aldığını söyleyebiliriz.
-
-**devam edecek
-
-* http://www.ntv.com.tr/ekonomi/kredi-karti-kullanicilarina-sahte-site-uyarisi,8HAQ58PWk0a-BcILzvl3vw?_ref=infinite 
-* https://securelist.com/blog/incidents/58528/the-first-tor-trojan-for-android/ 
