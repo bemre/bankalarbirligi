@@ -248,6 +248,20 @@ Uygulamanın istediği izinleri kontrol ettiğimiz zaman şu şekilde bir tablo 
 
 ![enter image description here](https://i.imgur.com/hdntub7.png)
 
+- android.permission.ACCESS_FINE_LOCATION
+- android.permission.SEND_SMS
+- android.permission.RECEIVE_BOOT_COMPLETED
+- android.permission.INTERNET
+- android.permission.SYSTEM_ALERT_WINDOW
+- android.permission.ACCESS_NETWORK_STATE
+- android.permission.ACCESS_COARSE_LOCATION
+- android.permission.WAKE_LOCK
+- android.permission.GET_TASKS
+- android.permission.CALL_PHONE
+- android.permission.RECEIVE_SMS
+- android.permission.READ_PHONE_STATE
+- android.permission.READ_SMS
+
 Uygulamanın kaynak kodlarına erişmek için apk dosyası decompile işleminden geçirilerek daha ayrıntılı verilere ulaşılabilmektedir. 
 Bu işlem için [jd-gui](http://jd.benow.ca/), [APK2Java](http://www.apk2java.com/) vb. apk dosyalarından java kaynak koda erişmeye izin veren araçlar kullanılabilir.
 
@@ -508,3 +522,5 @@ Uygulamanın kaynak kodlarında yer alan sınıflardan:
 - https://www.westpac.com.au/personal-banking/online-banking/features/
 
 gibi siteleri hedef alması zararlının farklı bir kıtayı hedefler iken kurban portföyünü genişletmek adına türk banka müşterilerini de hedef aldığını söyleyebiliriz.
+
+Zararlıya ait ioc bilgilerine [buradan](iocs/AdobeFlashPlayer.apk.ioc) erişebilirsiniz.
