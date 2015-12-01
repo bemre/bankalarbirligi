@@ -1,6 +1,6 @@
-# bankalarbirligi Zararlı Yazılımı
+# bankalarbirligi Mobil Zararlı Yazılımı (slempo android bot)
 
-online banka uygulamalarını hedef alan zararlı yazılımlar her geçen gün artmakta ve farklı atak vektörleri ile karşımıza çıkmaktadır.
+Online banka uygulamalarını hedef alan zararlı yazılımlar her geçen gün artmakta ve farklı atak vektörleri ile karşımıza çıkmaktadır.
 
 Geçtiğimiz ay içerisinde birden fazla zararlı yazılım, farklı kaynaklardan, farklı banka müşterilerini ve online finansal işlemleri kullanan kişileri hedef aldı. Bunlardan ilki  bankalarbirligi.com üzerinden çeşitli banka müşterilerine gönderilen oltalama maili ile ön plana çıktı.
 
