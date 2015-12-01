@@ -1,0 +1,34 @@
+<ioc
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+    xmlns='http://schemas.mandiant.com/2010/ioc' id='61598046-fc58-47b0-9305-88d50ed4c4f0' last-modified='2015-12-01T12:24:09.392Z'>
+    <short_description>slempo android bot bankalarbirligi variant</short_description>
+    <description>slempo android bot bankalarbirligi variant</description>
+    <authored_by>Bâkır EMRE</authored_by>
+    <authored_date>2015-12-01T12:24:09.392Z</authored_date>
+    <links/>
+    <definition>
+        <Indicator operator='OR' id='6bb5909a-6bee-43e4-a76e-09651dd86b6a'>
+            <IndicatorItem condition='contains' id='d0f3e743-231a-4ea2-b80b-8d4fb8b0bd48'>
+                <Context document='UrlHistoryItem' search='UrlHistoryItem/URL' type='mir'/>
+                <Content type='string'>http://37.143.14.251:2080</Content>
+            </IndicatorItem>
+            <IndicatorItem condition='contains' id='7f15637c-88c4-450d-9b8c-349d84744998'>
+                <Context document='FileItem' search='FileItem/Md5sum' type='mir'/>
+                <Content type='md5'>9a73e9d1f6d9bcb3c17dfc2ea2f0577b</Content>
+            </IndicatorItem>
+            <IndicatorItem condition='contains' id='75ab9412-feaa-4de8-a1f2-5fb547ed776d'>
+                <Context document='FileItem' search='FileItem/FileName' type='mir'/>
+                <Content type='string'>AdobeFlashPlayer.apk</Content>
+            </IndicatorItem>
+            <IndicatorItem condition='contains' id='90163033-c9a8-4793-b186-252c9ce57511'>
+                <Context document='ProcessItem' search='ProcessItem/PortList/PortItem/remoteIP' type='mir'/>
+                <Content type='string'>37.143.14.251</Content>
+            </IndicatorItem>
+            <IndicatorItem condition='contains' id='f6077194-1b48-4030-9e17-f5680d47f16d'>
+                <Context document='UrlHistoryItem' search='UrlHistoryItem/URL' type='mir'/>
+                <Content type='string'>http://xxxmobiletubez.com/video.php</Content>
+            </IndicatorItem>
+        </Indicator>
+    </definition>
+</ioc>
