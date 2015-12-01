@@ -438,7 +438,7 @@ dikkat edilirse **screen injection** yöntemi kullanılarak asıl uygulamanın s
 
 Yine aynı şekilde kullanıcı gmail'i açtığı anda
 
-```
+```syslog
 I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.GM} from pid 5876
 I/ActivityManager(  511): Displayed org.slempo.service/.activities.GM: +151ms
 I/ActivityManager(  511): START u0 {flg=0x10124000 cmp=org.slempo.service/.activities.GM} from pid 570
@@ -451,7 +451,7 @@ I/WindowState(  511): WIN DEATH: Window{52ad13b4 u0 org.slempo.service}
 
 ![enter image description here](https://i.imgur.com/2ugtc4j.png)
 
-```
+```syslog
 org.slempo.service/.activities.GM
 ```
 
