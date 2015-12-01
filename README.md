@@ -1,4 +1,4 @@
-# bankalarbirligi Mobil Zararlı Yazılımı (slempo android bot)
+# bankalarbirligi Mobil Zararlı Yazılımı: #slempo android bot
 
 Online banka uygulamalarını hedef alan zararlı yazılımlar her geçen gün artmakta ve farklı atak vektörleri ile karşımıza çıkmaktadır.
 
@@ -293,12 +293,11 @@ Zararlı yazılımın yönetildiği Komuta kontrol sunucusuna (C&C) ait ekran g�
 ![enter image description here](https://i.imgur.com/OmaJcJk.png)
 
 
-TBB adına yayılan **AdobeFlashPlayer** aynı paket adıyla yayılan zararlı uygulamanın aksine  HTTP protokolünü kullanmaktadır. 
+TBB adına yayılan **AdobeFlashPlayer** aynı paket adıyla yayılan zararlı uygulamanın aksine HTTP protokolünü kullanmaktadır. 
 
 Zararlı yazılıma ait bazı bulguları irdelersek:
 
 **960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7** hash değerine sahip zararlı yazılıma ait [virustotal analizi](https://www.virustotal.com/en/file/960422d069c5bcf14b2acbefac99b4c57b857e2a2da199c69e4526e0defc14d7/analysis/) gibidir.
-
 
 *Constants.java*
 
@@ -340,7 +339,7 @@ public class Constants
   public Constants() {}
 }
 ```
-dikkat edileceği üzere sabit değişkenlerin bulunduğu dosya içerisinde **IP** adresleri ve bazı URL bilgileri bulunmaktadır.  Zararlının iletişime geçtiğ CnC sunucu bilgisi
+dikkat edileceği üzere sabit değişkenlerin bulunduğu dosya içerisinde **IP** adresleri ve bazı URL bilgileri bulunmaktadır.  Zararlının iletişime geçtiği C&C sunucu bilgisi
 
 ```java
     CreditCardNumberEditText$OnCreditCardTypeChangedListener
@@ -354,7 +353,7 @@ sınıfında *sendData* ile **37.143.14.251** IP adresi **2080** portuna veri g�
 ```
 
 Zararlı uygulamanın cihaz tarafında yaptığı diğer işlemlere bakarsak:
-Zararlı mobil cihazı ilklendirirken  cihaza ait çeşitli verileri C&C sunucuya göndermekte ve bu verilere göre enfekte olmuş cihaz için bir ID(code) almaktadır.
+Zararlı mobil cihazı ilklendirirken cihaza ait çeşitli verileri C&C sunucuya göndermekte ve bu verilere göre enfekte olmuş cihaz için bir ID almaktadır.
 
 ![](https://i.imgur.com/xcsHObE.png)
 
@@ -367,14 +366,12 @@ zararlı belirli aralıklarla (her dakikada bir) C&C sunucuna bağlanıp yeni ko
 zararlı yazılımın çalıştığı cihazda Google Play Store açıldığı zaman  işletim sistemi üzerinde aşağıdaki kayıtlar düşmektedir.
 
 ```
-
 I/InputDispatcher(  511): Dropping event because there is no touchable window at (778, 972).
 I/ActivityManager(  511): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.vending/.AssetBrowserActivity} from pid 690
 D/dalvikvm(  511): GC_FOR_ALLOC freed 1660K, 23% free 10811K/13872K, paused 8ms, total 8ms
 I/ActivityManager(  511): Start proc com.android.vending for activity com.android.vending/.AssetBrowserActivity: pid=2710 uid=10078 gids={50078, 3003, 1028, 1015}
 D/Finsky  ( 2710): [1] FinskyApp.onCreate: Initializing network with DFE https://android.clients.google.com/fdfe/
 D/MobileDataStateTracker(  511): default: setPolicyDataEnable(enabled=true)
-D/dalvikvm( 2710): GC_CONCURRENT freed 217K, 8% free 3186K/3456K, paused 2ms+0ms, total 5ms
 D/dalvikvm( 2710): GC_CONCURRENT freed 297K, 10% free 3289K/3636K, paused 2ms+2ms, total 5ms
 D/Finsky  ( 2710): [1] DailyHygiene.goMakeHygieneIfDirty: No need to run daily hygiene.
 W/Settings( 2710): Setting download_manager_max_bytes_over_mobile has moved from android.provider.Settings.Secure to android.provider.Settings.Global.
@@ -389,8 +386,6 @@ D/Finsky  ( 2710): [1] UpdateWidgetsReceiver.onReceive: Updated 0 NowPlayingWidg
 D/Finsky  ( 2710): [1] RestoreTracker.stopServiceIfDone: Restore complete with 0 success and 0 failed.
 I/ActivityManager(  511): Displayed com.android.vending/.AssetBrowserActivity: +471ms
 D/Finsky  ( 2710): [1] MainActivity.initializeBilling: Optimistically initializing billing parameters.
-D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
-D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
 D/Finsky  ( 2710): [1] BaseWidgetProvider.onReceive: Received ACTION_APPWIDGET_UPDATE, updating 0 widgets.
 D/dalvikvm( 2710): GC_CONCURRENT freed 376K, 8% free 5626K/6052K, paused 2ms+0ms, total 5ms
 ``` 
@@ -410,12 +405,14 @@ D/dalvikvm(  511): GC_FOR_ALLOC freed 800K, 18% free 11407K/13868K, paused 7ms, 
 
 ``` 
 
-şeklinde **slempo** servisi çalışmaya başlamaktadır.
+şeklinde **slempo** servisinin **activities.Cards** Cards aktivitesinin etkinleştiği görülmektedir.
 
 ```
 I/ActivityManager(  511): Displayed org.slempo.service/.activities.Cards: +390ms
+```
 
-
+daha sonra ise **activities.CvcPopup** CvcPopup aktivitesinin etkinleştiği gözlemlenebilmektedir.
+```
 I/ActivityManager(  511): START u0 {flg=0x10020000 cmp=org.slempo.service/.activities.CvcPopup} from pid 2683
 ``` 
 
@@ -445,7 +442,6 @@ I/ActivityManager(  511): START u0 {flg=0x10124000 cmp=org.slempo.service/.activ
 I/ActivityManager(  511): Displayed org.slempo.service/.activities.GM: +68ms
 I/ActivityManager(  511): Killing 5876:org.slempo.service/u0a58 (adj 16): remove task
 I/WindowState(  511): WIN DEATH: Window{52ad13b4 u0 org.slempo.service}
-
 ``` 
 ![enter image description here](https://i.imgur.com/Kq8hICR.png)
 
@@ -510,7 +506,8 @@ Uygulamanın arka planda çalıştırdığı komutların bulunduğu sınıflar i
 - processDisableForwardCallsCommand
 - processUpdateHTMLCommand
 
-şeklindedir.
+şeklindedir. 
+Görüldüğü üzere Çağrı yönlendirmeden, sms dinlemeye, gps konumu tespit etmeden, numara bloklamaya kadar farklı işlevleri kullanıcıdan habersiz bir şekilde yapmaktadır.
 
 Uygulamanın kaynak kodlarında yer alan sınıflardan:
 
@@ -536,15 +533,15 @@ Zararlının kaynak kodlarında yer alan
               if (((isRunning("com.android.vending")) || (isRunning("com.google.android.music"))) && (!MainService.settings.getBoolean("CODE_IS_SENT", false)))
               {
                 localObject = new Intent(MainService.this, Cards.class);
-        ...
+            ...
               }
               if (((isRunning("com.whatsapp")) || (isRunning("com.viber.voip")) || (isRunning("com.instagram.android")) || (isRunning("com.skype.raider"))) && (!MainService.settings.getBoolean("PHONE_IS_SENT", false)))
               {
                 localObject = new Intent(MainService.this, ChangeNumber.class);
-        ...
+            ...
               }
             }
-	...
+	    ...
             Intent localIntent1;
             if ((isRunning("com.google.android.gm")) && (!MainService.settings.getBoolean("GM_IS_SENT", false)))
             {
